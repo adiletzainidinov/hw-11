@@ -9,6 +9,11 @@ const AddTodo = () => {
 
     const addTodo = (e) => {
         e.preventDefault();
+        console.log('title: ', title);
+        if ( '' === title || undefined === title ) {
+            alert( 'Field can not be blank' );
+            return;
+        }
         const newTodos = [ ...todos, { id: uuidv4(), title: title, completed: false } ];
         setTodos( newTodos );
         setTitle( '' );
